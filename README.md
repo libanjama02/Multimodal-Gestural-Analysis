@@ -15,7 +15,7 @@ All scripts were developed using Python with some prominent libraries in this pr
 
 1. **Computer with Webcam and Bluetooth**: For capturing hand pose landmarks.
 2. **Mbientlab Wearable Wrist Sensor**: Required for IMU data collection.
-3. **Optional**: RealSense Depth Camera for more accurate hand landmark data. Replace your standard webcam with this for enhanced data quality.
+3. **Optional**: RealSense Depth Camera for more accurate hand landmark data. Replace your webcam with this for enhanced data quality.
 
 #### Software Requirements:
 
