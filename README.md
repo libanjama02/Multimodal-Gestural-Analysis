@@ -27,7 +27,7 @@ All scripts were developed using Python with some prominent libraries in this pr
 You'll need to install several Python libraries to run the scripts in this repository. Below are the libraries used across different parts of the project:
 
 - `os`, `time`, `datetime` for file and time operations.
-- `mbientlab` for interfacing with the Mbientlab wearable wrist sensor.
+- `metawear` for interfacing with the Mbientlab wearable wrist sensor.
 - `cv2` and `mediapipe` for video capture and hand pose estimation.
 - `pandas` and `numpy` for data manipulation.
 - `matplotlib` and `seaborn` for data visualization.
