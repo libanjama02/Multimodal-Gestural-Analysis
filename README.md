@@ -44,6 +44,6 @@ pip install -r dependencies.txt
 ##### Note:
 
 1. **Mbient Sensor Connectivity**: The MAC address for the Mbient sensor is hardcoded in the script and may be subject to change. If the sensor disconnects frequently, press its button once or twice before running the script to ensure it remains connected.
-2. **Path Customization**: Some scripts contain hardcoded paths. Make sure to modify them to fit your directory structure.
+2. **Path Customization**: Most scripts contain hardcoded paths. Make sure to modify them to fit your directory structure.
 
 ---
