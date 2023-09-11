@@ -39,13 +39,15 @@ An oversight in this project revolved around running both pose and IMU collectio
 
 Seven gestures were initially considered for the experiment, each chosen to explore the feasibility of recognizing gestures with varying degrees of complexity and surgical relevance. The gestures were:
 
-`1. **Twist Hand**: Rotating the wrist to face the palm towards and away from the camera.
+
+1. **Twist Hand**: Rotating the wrist to face the palm towards and away from the camera.
 2. **Open-Close Hand**: Opening and closing the hand while the palm faces the camera.
 3. **Insert RTL**: Moving a pen horizontally from the left to the right side of the camera view and back.
 4. **Insert FTB**: Moving a pen towards and away from the camera.
 5. **Twist Pen**: Holding a pen and rotating it 90 degrees and back.
 6. **Rotating**: Holding a pen and rotating it in a circular arc.
-7. **Lifting Hand**: Lifting a flat hand from a table and putting it back. `
+7. **Lifting Hand**: Lifting a flat hand from a table and putting it back. 
+
 
 Gestures like "Insert RTL", "Insert FTB", and "Twist Pen" are directly inspired by movements commonly made during surgeries, whereas "Twist Hand" and "Open-Close Hand" were included as simpler gestures for proof of concept. "Rotating" and "Lifting Hand" were not further processed due to various constraints, including accidental changes in the laptop webcam position and other minor issues related to the experimental process during the day of recording (in the case of "Rotating", the gesture was performed without breaks in between, making segmentation infeasible).
 
@@ -55,7 +57,7 @@ The script was executed by myself, performing each selected gesture slowly and a
 
 #### Some Constraints
 
-The experiment was conducted in an environment with minimal background noise to ensure data quality. This will rarely be feasible in a surgical environment which is likely be subject to issues involving background clutter, changes in illumination, rapid movement or occulsion[ Paper: Gesture recognition algorithm based on multi-scale feature fusion in RGB-D images]. Another notable constraint during my experiment was an oversight in limiting the MediaPipe function to detect a single hand for capturing hand pose landmarks. As a result, the script recorded columns for two hands, despite only one hand being in view for all experiments. This was later accounted for in the Preprocessing stage. Lastly, the `output.mp4` for all data recording sessions were sped up (approximately 2x). The reason for this issue was not explored in this project although may involve the framerate of the laptop webcam used being 30FPS.
+The experiment was conducted in an environment with minimal background noise to ensure data quality. This will rarely be feasible in a surgical environment which is likely be subject to issues involving [background clutter, changes in illumination, rapid movement or occulsion](https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/ipr2.12712). Another notable constraint during my experiment was an oversight in limiting the MediaPipe function to detect a single hand for capturing hand pose landmarks. As a result, the script recorded columns for two hands, despite only one hand being in view for all experiments. This was later accounted for in the Preprocessing stage. Lastly, the `output.mp4` for all data recording sessions were sped up (approximately 2x). The reason for this issue was not explored in this project although may involve the framerate of the laptop webcam used being 30FPS.
 
 - - - 
 ## Data Preprocessing
@@ -101,7 +103,7 @@ The execution and development for extracting each feature set will not be discus
 ##### Statistical Features
 
 **Importance in Data Science**:  
-Statistical features was the first approach used in the feature engineering process due to it's commonality across various machine learning disciplines, not just gestural analysis. The reason for this comes from their ability to capture the central tendency, dispersion, and shape of the data distribution, which provides an informative, snapshot of the data characteristics. [Insert Lit Example- https://medium.com/analytics-vidhya/statistics-mean-median-mode-variance-standard-deviation-47fab926465a]
+[Statistical features](https://medium.com/analytics-vidhya/statistics-mean-median-mode-variance-standard-deviation-47fab926465a) was the first approach used in the feature engineering process due to it's commonality across various machine learning disciplines, not just gestural analysis. The reason for this comes from their ability to capture the central tendency, dispersion, and shape of the data distribution, which provides an informative, snapshot of the data characteristics. 
 
 **Features Employed and Justification**:  
 This project utilized the measures `mean, median, range, standard deviation, skewness, and kurtosis`. The mean and median provide a summary measure that describe the "central location" of the data, essential in capturing a baseline for each gesture. The standard deviation and range measure the dispersion, skewness captures any asymmetry, and kurtosis identifies the "tailedness" of the distribution. The overview generated by extracting these features were critical for differentiating gestures that may have similar central tendencies but differ in other statistical aspects.
