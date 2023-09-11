@@ -157,6 +157,8 @@ Note To Self: Talk about the execution and development of the script.
 Heatmaps were generated to offer a visual representation of how each feature correlates with others. The 21 landmarks were aggregated so that comparison with quaternion and acceleration features was feasible. 
 
 [Insert Pic Here, maybe 1 or 2 pics.]
+![Screenshot 2023-08-24 182525](https://github.com/libanjama02/Multimodal-Gestural-Analysis/assets/138901614/e3a286b8-350f-4354-8e34-da7555eaaee2)
+
 
 However, dimensionality reduction was not performed as a result of any analysis from the heatmaps. For the interest of future work in this avenue, here is a list of information i deduced specific to this project and it's dataset for highly discriminative features as a result of my subjective viewing of each heatmap script.
 
@@ -192,6 +194,8 @@ Once all feature engineering was concluded, the dataframe created was normalized
 `MDS_visualization.py` was a useful script that visualized the high-dimensional feature space in a 2D format. This helped to provide an intuitive understanding of how well the features cluster different gestures, serving as a preliminary validation of the feature set's effectiveness. [7]
 
 [Insert Picture Here]
+![Screenshot 2023-09-10 141650](https://github.com/libanjama02/Multimodal-Gestural-Analysis/assets/138901614/2913ff77-826b-4db3-8e12-261b84413a3b)
+
 
 The results showed surprisingly good clustering, with close overlap appearing in certain instances between `InsertFTB` and the `Twisthand` gesture (more prevalent when the `random_state` is modified). A possible reason for this may be due to these two gestures having the most movement in the Z axis for pose data, due to being prone to move toward and away from the camera. This could call for a linear classifier being used when working with small gesture datasets like within this project, however that is unlikely to scale with size.
 
@@ -200,10 +204,13 @@ The results showed surprisingly good clustering, with close overlap appearing in
 Insights from the MDS visualization called for more feature selection. Random Forest was explored as the tool to rank feature importance[8]. Using the `RF_FeatureImportance.py` script, a stratified split of 70% training and 30% testing was executed on the normalized dataset. To ascertain the robustness and consistency of feature importance rankings, the Random Forest model was run 30 times with varying random states. The features consistently appearing in the top 20 rankings across all iterations were noted below, offering a measure of reliability in their discriminative power. However, due to achieving reasonable clustering with MDS and valid results in later modelling stages, further feature selection was not pursued.
 
 [Insert Pic of Results Here]
+![Screenshot 2023-08-29 074340](https://github.com/libanjama02/Multimodal-Gestural-Analysis/assets/138901614/0d265c96-8686-4353-939a-0d0892c1ebbe)
 
 Further validation was achieved through clustering metrics. In particualr, the Silhouette and Davies-Bouldin Scores[9] were explored. These metrics were calculated using K-means clustering on the normalized feature set. The Silhouette Score offered insight into how similar each object is to its own cluster compared to other clusters, providing a measure of how well separated the gesture types are in the feature space. The Davies-Bouldin Score complemented this by evaluating the average similarity ratio of each cluster with its most similar cluster; lower values indicate better clustering. These clustering metrics served as a quantitative means to validate the effectiveness of the selected features, thus providing a fuller, more nuanced understanding of their discriminative capabilities.
 
 [Insert Pic of Results Here]
+![Screenshot 2023-09-12 002003](https://github.com/libanjama02/Multimodal-Gestural-Analysis/assets/138901614/0dc1898a-faf9-4a33-90e7-3ebe0d7821ef)
+
 
 - - - 
 ## Machine Learning Models
@@ -220,6 +227,7 @@ The final objective in this project was to leverage the curated features for the
     A stratified 70-30 train test split is used in order to maintain class representation (42 training samples, 18 test samples). The model was initiated with 100 estimators (default value) and a random state of 33 for reproducibility. The effect of these hyperparameters on the model's performance was not evaluated within this project. 
 
 [Insert RF Pic here]
+![RF](https://github.com/libanjama02/Multimodal-Gestural-Analysis/assets/138901614/eadf806d-664c-4b49-905a-c290c0c231b7)
 
 3. **Performance Metrics**:  
     The model achieved an accuracy of approximately `0.89`, with notable precision and recall scores for most gestures. However, the "Intermission" category had a lower recall. This is likely due to the smaller sample size for each intermission segment. Although there were 10 intermission segments, the sample size varied drastically depending on the recording. This project is not particularly concerned with categorizing when a gesture is not being performed, however for this to be explored further, a proper dataset of structured "Intermission" gestures may be worth consideration.
@@ -237,6 +245,8 @@ The final objective in this project was to leverage the curated features for the
     The same statified 70-30 train test split is used, as is the case for all machine learning models explored in this porject. The model also used 4 neighbors for classification. Given the complexity of the feature space, the choice of `k` may requires further optimization in future projects.
 
 [Insert RF Pic here]
+![Knn](https://github.com/libanjama02/Multimodal-Gestural-Analysis/assets/138901614/df14131b-add1-409e-88d9-8672952e009f)
+
 
 3. **Performance Metrics**:  
     The k-NN model also achieved an accuracy of `0.89`, the exact same as the RandomForest model, and again faltered on the "Intermission" category. This adds validity to the patterns of data recognized by the model in that the results are not artifacts of any particular alogrithmic approach. However, the fact that both are achieving the same results also calls into question the complexity necessary for classification of gestures of this dataset. It was deduced earlier in the project that linear classification would not be explored seeing as gesture data is complex, however for such a small dataset, it may achieve similar values as the more complicated  
@@ -251,6 +261,7 @@ The final objective in this project was to leverage the curated features for the
     An RBF (Radial Basis Function) kernel was used, a common choice for non-linear data and was not tuned in this project.
 
 [Insert RF Pic here]
+![an_SVM](https://github.com/libanjama02/Multimodal-Gestural-Analysis/assets/138901614/9e432fa7-8b65-420a-a5e4-bd86aedcedfe)
 
 3. **Performance Metrics**:  
     The SVM model achieved perfect accuracy of `1.00`. This raises concerns about potential overfitting, especially given the limited dataset, and could be an explanation for high accuracy for other model outputs as well.
@@ -265,6 +276,8 @@ The final objective in this project was to leverage the curated features for the
     The model was implemented with default hyperparameters.
 
 [Insert RF Pic here]
+![GB](https://github.com/libanjama02/Multimodal-Gestural-Analysis/assets/138901614/b44323bb-ce87-44c5-b1de-ed4946022379)
+
    
 3. **Performance Metrics**:  
     Like its counterparts, the Gradient Boosting model also reached an accuracy of `0.89`. However, it managed to perfectly classify the "Open Close" gesture, unlike k-NN which perfectly classified "Twist Hand".
@@ -280,6 +293,7 @@ More tuning, analysis and development of advanced models such as Neural Networks
 The final aspect of this project briefly explores the generation of scalograms. The choice of scales used was Continuous Wavelet Transform (CWT) due to being ideal for analyzing nonstationary signals, which encompasses gesture recognition[15].  Below is an output of the scalogram generated for IMU data for the "Twist Hand" gesture:
 
 [Insert Pic Here]
+![Screenshot 2023-09-11 170819](https://github.com/libanjama02/Multimodal-Gestural-Analysis/assets/138901614/ded5b117-f99c-41fa-8983-6b9fb3e4fb6f)
 
 The results are informative as the first section (approx 0-4000) of the sample count lacks any notable shape and is darker, which represents the "Intermission" after being compared with the ground truth. The rest of the sample count represents a gesture being performed as it shows more vivid colours and spikes indicating that these are higher frequency than the section prior. Within this gesture, it is clear that `x`,`y`,`z`,`ax` and `az` are the most informative for gesture recognition. 
 
@@ -299,17 +313,6 @@ There are many avenues to explore with scalograms, and while research has been d
 * Future work using advanced modelling should explore Temporal Sequence analysis. Basically if a gesture occurs one after the other, we can comment on them, pick them out etc. Using Hidden Markov Models, LSTMs, Transformers and so on offer advanced tools to creating more context aware gesture recognition [22]. These are only feasible with larger datasets than this project.
 * Multimodal Feature Fusion will be the standard taken for future endeavours in Surgical Data Science. While this project explores pose and IMU, it goes without saying that the integration of more modalities aids to the robustness and contextual awarness of gesture recognition models in the future[23]. 
 * Real-time analysis will be a crucial aspect of Surgical Data Science in the future due to the ability to apply immediate feedback, account for irregularities and errors in gesture patterns, training and so on. Expanding the models developed within this project for real time purposes is an important step forward iNto making this avenue a reality.
-
-
-
-
-A good time to mention TriBERT likely...
-
-Room for transformers or suttin(title: HGR-ViT: Hand Gesture Recognition with Vision Transformer ): Hand gesture recognition (HGR) is a crucial area of research that enhances communication by overcoming language barriers and facilitating human-computer interaction. Although previous works in HGR have employed deep neural networks, they fail to encode the orientation and position of the hand in the image. To address this issue, this paper proposes HGR-ViT, a Vision Transformer (ViT) model with an attention mechanism for hand gesture recognition. Given a hand gesture image, it is first split into fixed size patches. Positional embedding is added to these embeddings to form learnable vectors that capture the positional information of the hand patches. The resulting sequence of vectors are then served as the input to a standard Transformer encoder to obtain the hand gesture representation. A multilayer perceptron head is added to the output of the encoder to classify the hand gesture to the correct class. The proposed HGR-ViT obtains an accuracy of 99.98%, 99.36% and 99.85% for the American Sign Language (ASL) dataset, ASL with Digits dataset, and National University of Singapore (NUS) hand gesture dataset, respectively. 
-
-
-This paper 100% should be used in discussing automatic feature extraction (https://ieeexplore.ieee.org/abstract/document/8215729?casa_token=s_DFmBHyZXYAAAAA:YjuRA73qhHpUhorlgO89KQECRIVt65QZNPMRRcKXx9kLgXk0TlNLDUgC251ddvuCJr5z7f08)
-
  
 - - - 
 ## List of References
