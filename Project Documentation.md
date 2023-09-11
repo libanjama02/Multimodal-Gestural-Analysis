@@ -9,7 +9,7 @@ The aim of this internship project was to explore and prototype methods for clas
 
 #### Data Integration 
 
-The first objective was to implement a pipeline that could successfully merge two multimodal data streams. Specifically, the focus was on hand pose landmarks obtained through MediaPipe's framework and Inertial Measurement Unit (IMU) data comprising quaternions and acceleration data collected using an Mbientlab MetaMotionS[Insert Lit Example - https://mbientlab.com/metamotions/], A wearable device that offers real-time and continuous monitoring of motion and environmental sensor data. A time-alignment script was designed to sync these two diverse data streams.
+The first objective was to implement a pipeline that could successfully merge two multimodal data streams. Specifically, the focus was on hand pose landmarks obtained through MediaPipe's framework and Inertial Measurement Unit (IMU) data comprising quaternions and acceleration data collected using an [Mbientlab MetaMotionS](https://mbientlab.com/metamotions/), A wearable device that offers real-time and continuous monitoring of motion and environmental sensor data. A time-alignment script was designed to sync these two diverse data streams.
 
 #### Visualization
 
