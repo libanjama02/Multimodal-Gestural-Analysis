@@ -23,29 +23,6 @@ The final and most significant objective involved prototyping machine learning t
 This work aims to provide an initial foundation upon which the Surgical Data Science team can build from, offering some avenues for further research in Multimodal Gestural Analysis, such as in integrating other modalities and developing more advanced models for larger applications in the field.
 
 - - - 
-## Literature Review
-
-there is a lack of quaternions in gesture recognition, reasons being likely not good sensors. idk confirm with GPT. but here we got a pretty good quaternion and acceleration device recorder? 
-most modern literature has an intensive focus on deep learning ngl. ML has fallen out of relevancy, but it's important to build from the principles inih.
-
-shiz like paper 5 shows the emphasis of improving one modality like RGB-D images and having robust gesture recognition. We can take the findings 
-
-The field of gesture recognition has seen significant advancements in recent years across various applications, from healthcare to human-computer interaction. Gesture recognition has proven to be crucial technology in healthcare settings. In particular, there has been a focus in utilizing this technology to aid people with disabilities. One study by X focuses on the development of a non-invasive end to end continuous dynamic gesture recognition system using IMU signal data and surface electromyography (sEMG) for Chinese sign language[1]. Another paper discusses the importance of gesture recognition in enabling real-time interpretation systems for sign language, thus providing an invaluable communication tool for deaf and mute people[3]. The focus may be attributed to ....  (i don't really know what to say here)
-The current status of gesture recognition in healthcare leans primarily towards unimodality, dominated by video data particularly. It is pertinent
-
-There has been a shift towards the use of multimodal data, especially sensor fusion. It has emerged as a pivotal technique to enhance gesture recognition systems within certain avenues. For instance, a study proposed a multi-model fall detection system incorporating both vision and sensor data [2] utilizing Random Forest and Long-Term Recurrent Convolutional Networks (LRCN). Another work introduced various innovative sensor fusion approaches like NaiveFuse, KineFuse, and AdaDeepFuse for efficient 3D human pose estimation [9]. These insights are particularly relevant to our work, where fusion of hand pose landmarks and IMU data plays a critical role. 
-
-It is important to highlight the use of quaternion data in gesture recognition. A paper focused on predicting 3D human pose sequences utilized quaternion representations for rotations, effectively addressing issues of error accumulation and discontinuities [10]. This method of using quaternions aligns close with the approach explored within the project, despite there being a low amount of literature focussed on using quaternion data for gesture recognition 
-
-
-The attempt to integrate hand pose with quaternion and acceleration data for gesture recognition is not a combination frequently explored in existing literature. Especially so given applications to healthcare and surgery in particular. Modelling and curating multimodal datasets is a complex and iterative process. In fields such as surgery, where there is a huge amount of variability and complexity in the operation, where even the most subtlest of gestures have a need to be understood and classified, where noise and data capturing quality is of massive importance, it makes even more sense for why the literature has struggled to lean into this sphere of avenue. 
-
-
-Whilst most of the recent studies in gesture recognition employ deep learning algorithms and more advanced model architecture, this project starts with foundational machine learning techniques with the goal of understanding and engineering features from the ground up before evolving into more complex models.  
-
-However, the field still presents several challenges, such as the need for efficient real-time analysis and robustness against varied conditions. Our project aims to address these issues by employing a multimodal approach that combines hand pose and quaternion data. This unique combination is relatively underexplored in the literature, which predominantly focuses on leveraging advanced machine learning models and utilizes minimal modalities. 
-
-- - - 
 ## Experimental Outline
 
 #### Multimodal_Data_Recording.py
