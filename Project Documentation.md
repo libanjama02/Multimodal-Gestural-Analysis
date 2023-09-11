@@ -39,13 +39,13 @@ An oversight in this project revolved around running both pose and IMU collectio
 
 Seven gestures were initially considered for the experiment, each chosen to explore the feasibility of recognizing gestures with varying degrees of complexity and surgical relevance. The gestures were:
 
-1. **Twist Hand**: Rotating the wrist to face the palm towards and away from the camera.
+`1. **Twist Hand**: Rotating the wrist to face the palm towards and away from the camera.
 2. **Open-Close Hand**: Opening and closing the hand while the palm faces the camera.
 3. **Insert RTL**: Moving a pen horizontally from the left to the right side of the camera view and back.
 4. **Insert FTB**: Moving a pen towards and away from the camera.
 5. **Twist Pen**: Holding a pen and rotating it 90 degrees and back.
 6. **Rotating**: Holding a pen and rotating it in a circular arc.
-7. **Lifting Hand**: Lifting a flat hand from a table and putting it back.
+7. **Lifting Hand**: Lifting a flat hand from a table and putting it back. `
 
 Gestures like "Insert RTL", "Insert FTB", and "Twist Pen" are directly inspired by movements commonly made during surgeries, whereas "Twist Hand" and "Open-Close Hand" were included as simpler gestures for proof of concept. "Rotating" and "Lifting Hand" were not further processed due to various constraints, including accidental changes in the laptop webcam position and other minor issues related to the experimental process during the day of recording (in the case of "Rotating", the gesture was performed without breaks in between, making segmentation infeasible).
 
