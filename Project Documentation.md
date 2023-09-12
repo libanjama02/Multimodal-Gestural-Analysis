@@ -261,7 +261,7 @@ The final objective in this project was to leverage the curated features for the
 #### GradientBoosting.py
 
 1. **Model Description**:  
-    Gradient Boosting constructs a strong predictive model by optimizing the shortcomings of a collection of weaker models. It's computationally more expensive but is known to yields better results.[14]
+    Gradient Boosting constructs a strong predictive model by optimizing the shortcomings of a collection of weaker models. It is targeted to be used by larger and more complex datasets[14].
 2. **Hyperparameters**:  
     The model was implemented with default hyperparameters.
 
