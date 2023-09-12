@@ -89,6 +89,8 @@ The hand pose visualization leverages the framework provided by MediaPipe to def
 
 The multimodal script essentially combines the features of both the quaternion and hand pose visualizations into a single frame, using a split-screen view. On one side, the hand pose is visualized with landmarks and connections, exactly as in the previous hand pose visualization. On the other side, a 3D cube represents the quaternion rotation, just like the quaternion animated visualization. The same UI features such as the Play/Pause button and progress slider is included, although the issue with the animation failing to start at a paused state is also carried over. This script was used for data scrutiny by comparing the animated visualization with the ground truth video, confirming data integrity.
 
+![Multimodalgif}(images/multimodalanimvisgif.gif)
+
 - - - 
 ## Feature Selection and Engineering
 
